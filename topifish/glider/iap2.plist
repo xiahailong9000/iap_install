@@ -14,14 +14,14 @@
             <!-- http或者https链接的ipa文件地址 -->
             <string>http://10.235.8.45//topifish/app/iap.ipa</string>
           </dict>
-          <!--<dict>
+          <dict>
             <key>kind</key>
             <string>full-size-image</string>
             <key>needs-shine</key>
             <true/>
             <key>url</key>
-            --><!-- http或者https链接的图片地址，可直接使用app对应的icon（分辨率没强制要求） --><!--
-            <string>http://x5.justep.com/apps/x5.png</string>
+             http或者https链接的图片地址，可直接使用app对应的icon（分辨率没强制要求） 
+            <string>http://10.235.8.45//topifish/app/icon.png</string>
           </dict>
           <dict>
             <key>kind</key>
@@ -29,9 +29,9 @@
             <key>needs-shine</key>
             <true/>
             <key>url</key>
-            --><!-- http或者https链接的小图片地址，可直接使用app对应的icon（分辨率没强制要求） --><!--
-            <string>http://x5.justep.com/apps/x5.png</string>
-          </dict>-->
+             http或者https链接的小图片地址，可直接使用app对应的icon（分辨率没强制要求）
+            <string>http://10.235.8.45//topifish/app/icon.png</string>
+          </dict>
         </array>
         <key>metadata</key>
         <dict>
