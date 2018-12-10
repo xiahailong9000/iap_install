@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN""http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
   <dict>
     <key>items</key>
@@ -31,6 +31,7 @@
             <key>url</key>
              http或者https链接的小图片地址，可直接使用app对应的icon（分辨率没强制要求）
             <string>http://10.235.8.45//topifish/app/icon.png</string>
+            
           </dict>
         </array>
         <key>metadata</key>
