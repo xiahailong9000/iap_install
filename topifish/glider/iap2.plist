@@ -13,7 +13,7 @@
      <string>software-package</string>
      <key>url</key>
      <!-- http或者https链接的ipa文件地址 -->
-     <string>http://10.235.8.45//topifish/glider/iap.ipa</string>
+     <string>http://10.235.8.45//topifish/app/iap.ipa</string>
     </dict>
     <dict>
      <key>kind</key>
