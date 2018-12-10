@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://appinhouse.unigamesdev.com/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <title>App In-House</title>
+  </head>
+  <body>
+    <center><h1>develop版</h1></center>
+
+        <div>
+
+            <center><h1>点击安装应用程序</h1></center>
+            <center><h3>(左边是IOS,右边是安卓.)</h3></center>
+                <br /> 
+                <center><h1>
+                  	<a href="itms-services://?action=download-manifest&url=https://xia01.oss-cn-beijing.aliyuncs.com/topifish/glider/iap.plist" id="text" >
+                   	<!--  <a href="https://xia01.oss-cn-beijing.aliyuncs.com/topifish/glider/iap.plist" id="text"> -->
+                      	ios下载
+  	              	</a>
+    	            	<br />    
+      	        		<br /> 
+      	    			  <br /> 
+  	              	<a href="apk.apk" id="text">
+  	                    android下载
+                		</a>
+                </h1></center>
+                  <br /> 
+                <center><h3>(扫描后，如果不自动安装，请在浏览器中打开页面)</h3></center>
+
+        </div>
+      
+    <script  language="javascript">
+        function refresh(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(e){
+                 if (this.readyState === 4) {
+                      if (this.status === 200){
+                         var data = JSON.parse(this.responseText);
+                          document.getElementById('time').innerHTML =  data.date;
+                          document.getElementById('version').innerHTML =  data.version+'.'+data.build;
+                      }
+                 }
+            };
+            xhr.open('GET', '/mech/dev/info_ios.json', true);
+            xhr.send(null);
+        };
+        refresh();
+
+        function refresh_android(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(e){
+                 if (this.readyState === 4) {
+                      if (this.status === 200){
+                         var data = JSON.parse(this.responseText);
+                          document.getElementById('time2').innerHTML =  data.date;
+                          document.getElementById('version2').innerHTML =  data.version+'.'+data.build;
+                      }
+                 }
+            };
+            xhr.open('GET', '/mech/dev/info_android.json', true);
+            xhr.send(null);
+        };
+        refresh_android();
+        
+        //histroy
+        function histroy(platform,button){
+            document.getElementById('histroy').innerHTML = "Loading ...";
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(e){
+                if (this.readyState === 4) {
+                    if (this.status === 200){
+                        var buttonOnClickValue = "histroy(\"Android\",\"Switch To IOS\")";
+                        if (platform == "Android")
+                        {
+                            buttonOnClickValue = "histroy(\"IOS\",\"Switch To Android\")";
+                        }
+                        document.getElementById('histroy').innerHTML = "<div style = 'text-align:right;'' ><input type='button' value='" + button + "' onclick='" + buttonOnClickValue+ "' style='font-size:25px;width:300px;height:60px;'></div>";
+                        var json = JSON.parse(this.responseText);
+                        for (var i = json.data.length - 1; i >= 0; i--) {
+                            var ver = json.data[i].version + "." + json.data[i].build;
+                            var align = "left";
+                            var number = (json.data.length - 1 - i);
+                            if (number % 2 != 0)
+                            {
+                                align = "right";
+                            }
+                            document.getElementById('histroy').innerHTML += "<p align=" + align + "><font color='red'>" + platform + "--></font><id='text'>" + (number + 1) + ")V:" + ver + " (" + json.data[i].date + ")</a></p><br/>";
+                        };
+                        
+                    }
+                }
+            };
+            if (platform == "IOS")
+            {
+                xhr.open('GET', '/history_ipa_list.json', true);
+            }else if (platform == "Android")
+            {
+                xhr.open('GET', '/history_apk_list.json', true);
+            }
+            xhr.send(null);
+        };
+        histroy("IOS","Switch To Android");
+    </script>
+</body></html>
+
+
+
